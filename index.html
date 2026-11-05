@@ -56,7 +56,11 @@
     object-fit: cover;
     object-position: 50% 25%;
   }
-  .text { max-width: 620px; margin: 0 auto; }
+  .text { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; }
+  /* Phones: show the email right under the name; larger screens keep the original order. */
+  .text > * { order: 2; }
+  .text > h1 { order: 0; }
+  .text > .contact { order: 1; margin-bottom: 28px; }
   h1 {
     font-family: "Cormorant Garamond", Georgia, serif;
     font-weight: 600;
@@ -125,6 +129,8 @@
     }
     .portrait { width: 100%; margin: 0; }
     .text { margin: 0; }
+    .text > *, .text > h1, .text > .contact { order: 0; }
+    .text > .contact { margin-bottom: 0; }
     h1, .purpose, .contact { text-align: left; }
   }
 </style>
